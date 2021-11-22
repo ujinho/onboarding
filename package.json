@@ -23,7 +23,9 @@
     "start": "yarn run start-dev",
     "start-dev": "webpack serve --config=configs/webpack/dev.js",
     "start-prod": "yarn run build && node express.js",
-    "test": "jest --coverage --watchAll --config=configs/jest.json"
+    "test": "jest --coverage --watchAll --config=configs/jest.json",
+    "prepare": "husky install",
+    "lint-all": "eslint --fix && prettier --write && npm t -- --watchAll=false --bail --passWithNoTests --onlyChanged"
   },
   "dependencies": {
     "@babel/cli": "^7.16.0",
@@ -52,10 +54,8 @@
     "express": "^4.17.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.4",
     "image-webpack-loader": "^8.0.1",
     "jest": "^27.3.1",
-    "msw": "^0.35.0",
     "nanoid": "^3.1.30",
     "node-sass": "^6.0.1",
     "prettier": "^2.4.1",
@@ -70,7 +70,10 @@
     "use-http": "^1.0.26",
     "webpack": "^5.64.2",
     "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.5.0",
     "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^4.5.0",
+    "husky": "^7.0.4"
   }
 }
