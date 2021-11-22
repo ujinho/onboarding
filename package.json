@@ -25,12 +25,16 @@
     "start-prod": "yarn run build && node express.js",
     "test": "jest --coverage --watchAll --config=configs/jest.json"
   },
-  "devDependencies": {
+  "dependencies": {
     "@babel/cli": "^7.16.0",
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@emotion/css": "^11.5.0",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.0.3",
     "@types/node": "^16.11.9",
     "@types/react": "^17.0.35",
@@ -38,6 +42,7 @@
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "babel-loader": "^8.2.3",
+    "cross-fetch": "^3.1.4",
     "css-loader": "^6.5.1",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
@@ -50,26 +55,22 @@
     "husky": "^7.0.4",
     "image-webpack-loader": "^8.0.1",
     "jest": "^27.3.1",
+    "msw": "^0.35.0",
+    "nanoid": "^3.1.30",
     "node-sass": "^6.0.1",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
+    "react-spinners": "^0.11.0",
     "rimraf": "^3.0.2",
     "sass-loader": "^12.3.0",
     "style-loader": "^3.3.1",
     "typescript": "^4.5.2",
+    "use-http": "^1.0.26",
     "webpack": "^5.64.2",
     "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^4.5.0",
     "webpack-merge": "^5.8.0"
-  },
-  "dependencies": {
-    "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@emotion/css": "^11.5.0",
-    "classnames": "^2.3.1",
-    "nanoid": "^3.1.30",
-    "react-spinners": "^0.11.0",
-    "use-http": "^1.0.26"
   }
 }

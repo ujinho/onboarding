@@ -14,13 +14,11 @@ const DashboardContainer = () => {
       url="https://jsonplaceholder.typicode.com"
       options={fetchProviderOptions}
     >
-      <Suspense fallback={<Spinner loading />}>
+      <Suspense fallback={<Spinner loading data-testid="dashboard-spinner" />}>
         <Dashboard />
       </Suspense>
     </HttpProvider>
   );
-
-  return <></>;
 };
 
 export default memo(DashboardContainer);

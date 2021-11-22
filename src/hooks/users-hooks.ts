@@ -12,7 +12,7 @@ export const useUsers = (options?: object) => {
 
   useEffect(() => {
     fetchUsers();
-  }, []);
+  }, [fetchUsers]);
 
   return {
     users,

@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect, useState } from 'react';
 
-import { useUsers } from '../../hooks/user-hooks';
+import { useUsers } from '../../hooks/users-hooks';
 
 import UsersList from '../../components/UsersList';
 import ErrorMessage from '../../components/ErrorMessage';
@@ -20,8 +20,12 @@ const Dashboard = () => {
   const userTasksState = useUserTasks(selectedUser);
 
   useEffect(() => {
+    if (!usersState.users?.length) {
+      return;
+    }
+
     setSelectedUser(usersState.users?.[0]);
-  }, [usersState.users]);
+  }, [usersState]);
 
   const onTaskDone = useCallback(
     (id) => {
@@ -31,7 +35,11 @@ const Dashboard = () => {
   );
 
   const leftPaneElement = usersState.error ? (
-    <ErrorMessage title="Error loading users" error={usersState.error} />
+    <ErrorMessage
+      title="Error loading users"
+      error={usersState.error}
+      data-testid="dashboard-users-error"
+    />
   ) : (
     <>
       <h2 className={dashboardPaneTitle}>Users</h2>
@@ -45,8 +53,9 @@ const Dashboard = () => {
 
   const rightPaneElement = userTasksState.error ? (
     <ErrorMessage
-      title="Error loading user's tasks"
+      title="Error loading user`s tasks"
       error={userTasksState.error}
+      data-testid="dashboard-tasks-error"
     />
   ) : (
     <>
@@ -60,8 +69,12 @@ const Dashboard = () => {
 
   return (
     <div className={dashboardContainer}>
-      <div className={dashboardLeftPane}>{leftPaneElement}</div>
-      <div className={dashboardRightPane}>{rightPaneElement}</div>
+      <div className={dashboardLeftPane} data-testid="dashboard-left-pane">
+        {leftPaneElement}
+      </div>
+      <div className={dashboardRightPane} data-testid="dashboard-right-pane">
+        {rightPaneElement}
+      </div>
     </div>
   );
 };
