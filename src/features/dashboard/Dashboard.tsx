@@ -25,7 +25,7 @@ const Dashboard = () => {
     }
 
     setSelectedUser(usersState.users?.[0]);
-  }, [usersState]);
+  }, [usersState.users]);
 
   const onTaskDone = useCallback(
     (id) => {
